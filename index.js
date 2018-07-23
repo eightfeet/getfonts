@@ -4,7 +4,7 @@ var request = require("request");
 var cheerio = require("cheerio");
 var mkdirp = require('mkdirp');
 
-var text = '级教室贴打扫整洁桌首赞美趣物角江活泼瞧愉摇泡迎轻迟晨稻秧紧绳牵交发表扬喜晶顶漂航行乾军舰量集体丽野照相机望肩宽岸渔撒网乡湾梨苹牙绕流群映栽朝霞墙报桂让闻味行热提帮助叔收椅接弟腿坏刀旁护科容易夫席戏次延演位站秩序乱定肯桔刘岁朱房挂盏灯笼奖瓣急等最捆束麻邮递信解窝然落凉爬躲屋沟蚂蚁藏伞电催锄滴盘餐粒皆辛苦查字典买教已经音母第形义便警钱夹您娃难票差啦丢街发浪数追应该奔科懂建造推器西肉抬馋直亲眼羽差嗓句极掉谜箱池塘波替裳热耳嘴鼻睛伙伴夜停转播视察寻煤炭露鸭邻居借结砍柴深刮抢修止本思久厌倦累莺练受猎坚持因念背傍湖通荷珠神平省笔始灰蜘蛛织阵丝断重冰终于结实捕啄森治痛死壮危险伤害枯蛀周静悄忽消灭挖眠准备食麦苗盖呼淘哨梦裙蓝舞穗丰堆仗团糕验瓶装炉融层脏菌期阿姨敲鞠躬糖摆喷醋削蕉核瓦尼亚摸围注塞虾吞烦吓象士熊名试冲撞翻眯齐录取';
+var text = '凶猛淹没归凿渠哇耽误探抓入勤妇稍滑艰披嫂颐捞浑含辈嘛何必赁柜议模范倘单顾迅顿涕待帐剩绸价贵异豪咱千棉絮蔡薄洲禁叹筷稀烫俩赛搅胜嫌银亿除越印曹官堵柱秤杆宰割艘沉线搬微牧泊漠茫矿兰簇拥吸显苍吻颊蒋沈蜂仍默扎崭况慌躺屏嗅羞愧特悦曲初翠爽透雕克但而且咬尝葡萄疆盛梯茂展搭棚串紫暗淡够床疑霜梅凌寒独遥昼疲伏甲板休翅却崇达迷质究掂藏郊贯溅裤致图馆者管册济些笃呵阅览凳坦蜡糟虽强态适孔碍钉舱港狂颠簸灌排巨竟匹愿驮坊挡伯浅鼠拦唉筋蹄既号缝傻吵厉冻悲哀趁懒惰纷普唤丑耐待壳模瘦讨欺侮嘲讥昏芽鹅敞希广喇叭优秀栏浙鲁幅卧仙墨砚段历务铺药之奋都央雄耸堂词垂朽型颖荫毯辆川迹景杰轰隆浓烟蔓救即移码拨防瑞凛冽霎罩蒙巍枕馒眉掷逐某击仅膀胳膊踏刺骨齿证任滨赏烁芒哟仿佛腾廊迈鞭宫猜';
 
 //本地存储目录
 var dir = './images';
@@ -32,14 +32,20 @@ var requestUrl = function(url, name){
 }
 
 var textArr = text.split('');
+var lengthText = textArr.length;
+var ind = 0;
 
-textArr.forEach(element => {
-    const url = `http://child.tao289.com/index.php?m=Chinese&word=${encodeURIComponent(element)}`;
-    requestUrl(url, element);
-});
-
-
-
+var loop = function() {
+    if (ind < lengthText) {
+        setTimeout(function(){
+            ind++;
+            loop();
+        }, 1000);
+    }
+    const url = `http://child.tao289.com/index.php?m=Chinese&word=${encodeURIComponent(textArr[ind])}`;
+    requestUrl(url, textArr[ind]);
+}
+loop();
 //下载方法
 var download = function (url, dir, filename) {
     request
