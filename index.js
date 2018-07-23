@@ -23,7 +23,7 @@ var requestUrl = function(url, name){
             var $ = cheerio.load(body);
             $('#wordimg').each(function () {
                 var src = 'http://child.tao289.com'+$(this).attr('src');
-                console.log('正在下载' + src);
+                console.log('正在下载' + name + src);
                 download(src, dir, name + src.substr(-4, 4));
                 console.log('下载完成');
             });
